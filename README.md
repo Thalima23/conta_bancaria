@@ -139,7 +139,7 @@ Para executar os códigos localmente, você precisará de:
 1. Clone o repositório do Projeto [Conta Bancária](https://github.com/rafaelq80/conta_bancaria_t82) dentro da pasta do *Workspace* do Eclipse/STS
 
 ```bash
-git clone https://github.com/rafaelq80/conta_bancaria_t82.git
+git clone https://github.com/Thalima23/conta_bancaria
 ```
 
 2. **Abra o Eclipse/STS** e selecione a pasta do *Workspace* onde você clonou o repositório do projeto
@@ -177,5 +177,5 @@ Este repositório é parte de um projeto educacional, mas contribuições são s
 
 <br />
 
-Desenvolvido por [**Rafael**](https://github.com/rafaelq80)
+Desenvolvido por [**Thalita**](https://github.com/Thalima23)
 Para dúvidas, sugestões ou colaborações, entre em contato via GitHub ou abra uma issue!
