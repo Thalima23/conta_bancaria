@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import conta_bancaria.model.Conta;
 import conta_bancaria.model.ContaCorrente;
+import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
 
 public class Menu {
@@ -21,7 +22,7 @@ public class Menu {
 		Conta c2 = new Conta(2, 123, 2, "Priscila Lins", 500000.00f);
 		System.out.println("O Saldo da conta é: " + c1.getSaldo());
 		
-		c1.setSaldo(6000000.00f);
+		c1.setSaldo(600000.00f);
 		
 		
 		System.out.println("O Saldo da conta é: " + c1.getSaldo());
@@ -40,21 +41,43 @@ public class Menu {
 		System.out.println("O saldo da conta é: " + c1.getSaldo());
 		
 		// Instanciar Objetos da Classe ContaCorrente
+		
+		System.out.println("\n\nInstanciar Objeto da Classe ContaCorrente");
+		
 		ContaCorrente cc1= new ContaCorrente(3, 456, 1, "Thuany Silva", 1000000.00f, 100000.00f);
 		
 		cc1.visualizar();
 		
+		// Instanciar Objetos da Classe Conta Poupanca
+		
+		System.out.println("\n\nInstanciar Objeto da Classe ContaPoupnca");
+		ContaPoupanca cp1= new ContaPoupanca(4, 567,2, "Thalita Lima", 100000.00f, 30);
+		
+	    cp1.visualizar();
+				
+		// SacarContaPoupanca
+		System.out.println("Sacar R$ 200.000.00: " + cp1.sacar(200000.00f));
+		System.out.println("O Saldo da conta é: R$ " + cp1.getSaldo());
+				
+		System.out.println("Sacar R$ 2.000.00: " + cp1.sacar(2000.00f));
+		System.out.println("O Saldo da conta é: R$ " + cp1.getSaldo());
+		
+		// Depositar ContaPoupanca
+		System.out.println("Depositar R$ 5.000.00");
+		cp1.depositar(5000.00f);
+		System.out.println("O Saldo da conta é: R$ " + cp1.getSaldo());
+		
 		//Sacar conta corrente
-		System.out.println(cc1.sacar(2000000.00f));
-		cc1.visualizar();
-
-		cc1.visualizar();
-		System.out.println(cc1.sacar(2000.00f));
-		cc1.visualizar();
+		System.out.println("Sacar R$ 2.000.000.00f: " + cc1.sacar(2000000.00f));
+		System.out.println("O Saldo da conta é: R$ " + cc1.getSaldo());
+		
+		System.out.println("Sacar R$ 2.000.00f: " + cc1.sacar(2000.00f));
+		System.out.println("O Saldo da conta é: R$ " + cc1.getSaldo());
 		
 		//Depositar conta corrente
+		System.out.println("Depositar R$ 5.000.00");
 		cc1.depositar(5000.00f);
-		cc1.visualizar();
+		System.out.println("O Saldo da conta é: R$ " + cc1.getSaldo());
 		
 
 		while (true) { //true indica que o laço será infinito, ou seja, continuará até que ocorra uma interrupção manual 
@@ -142,5 +165,4 @@ public static void sobre() {
 	System.out.println("*********************************************************");
 }
 }
-
 
