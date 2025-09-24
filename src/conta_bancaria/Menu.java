@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import conta_bancaria.model.Conta;
 import conta_bancaria.model.ContaCorrente;
+import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
 
 public class Menu {
@@ -44,6 +45,15 @@ public class Menu {
 		
 		cc1.visualizar();
 		
+		// Instanciar Objetos da Classe Conta Poupanca
+		ContaPoupanca cp1= new ContaPoupanca(4, 567,2, "Thalita Lima", 100000.00f, 30);
+		
+		cp1.visualizar();
+		cp1.sacar(1000.00f);
+		cp1.visualizar();
+		cp1.depositar(500.00f);
+		cp1.visualizar();
+		
 		//Sacar conta corrente
 		System.out.println(cc1.sacar(2000000.00f));
 		cc1.visualizar();
@@ -55,6 +65,7 @@ public class Menu {
 		//Depositar conta corrente
 		cc1.depositar(5000.00f);
 		cc1.visualizar();
+		
 		
 
 		while (true) { //true indica que o laço será infinito, ou seja, continuará até que ocorra uma interrupção manual 
