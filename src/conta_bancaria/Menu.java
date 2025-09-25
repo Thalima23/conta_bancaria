@@ -1,17 +1,22 @@
 package conta_bancaria;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import conta_bancaria.controller.ContaController;
 import conta_bancaria.model.Conta;
 import conta_bancaria.model.ContaCorrente;
 import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
 
 public class Menu {
-
+	
+	private static final Scanner leia = new Scanner(System.in);
+	private static final ContaController contaController = new ContaController();
+	
 	public static void main(String[] args) {
 		
-		Scanner leia = new Scanner(System.in);
+		
 		
 		int opcao; // armazena o nº correspondente a opçao do menu escolhida pelo usuário.
 		
@@ -94,9 +99,13 @@ public class Menu {
 			System.out.println("Entre com a opção desejada:                          ");
 			System.out.println("                                                     " + Cores.TEXT_RESET);
 			
+			try {
 			opcao = leia.nextInt();
-			
-			if (opcao == 0) {
+			leia.nextLine();
+			}catch(InputMismatchException e){
+			opcao = -1; 
+				System.out.println("\nDigite um número entre 0 e 8");
+			}
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\nAnubis's Bank - Descomplicando seu presente e seu futuro!");
 				sobre();
                  leia.close();
@@ -106,44 +115,45 @@ public class Menu {
 		switch (opcao) { // condicional por casos, para tratar as opções de 1 a 8. Cada número acionará uma mensagem específica
 		case 1:
 			System.out.println(Cores.TEXT_WHITE + "Criar Conta\n\n");
-
+			keyPress();
 			break;
 		case 2:
 			System.out.println(Cores.TEXT_WHITE + "Listar todas as Contas\n\n");
-
+			keyPress();
 			break;
 		case 3:
 			System.out.println(Cores.TEXT_WHITE + "Consultar dados da Conta - por número\n\n");
-
+			keyPress();
 			break;
 		case 4:
 			System.out.println(Cores.TEXT_WHITE + "Atualizar dados da Conta\n\n");
-
+			keyPress();
 			break;
 		case 5:
 			System.out.println(Cores.TEXT_WHITE + "Apagar a Conta\n\n");
-
+			keyPress();
 			break;
 		case 6:
 			System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
-
+			keyPress();
 			break;
 		case 7:
 			System.out.println(Cores.TEXT_WHITE + "Depósito\n\n");
-
+			keyPress();
 			break;
 		case 8:
 			System.out.println(Cores.TEXT_WHITE + "Transferência entre Contas\n\n");
-
+			keyPress();
 			break;
 			
 		default:
 			System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
+			keyPress();
 			break;
 				
 		}
 	}
-}
+
 
 public static void sobre() {
 	System.out.println("\n*********************************************************");
@@ -151,7 +161,16 @@ public static void sobre() {
 	System.out.println("Contato: thalitalima23@gmail.com");
 	System.out.println("Github: https://github.com/Thalima23");
 	System.out.println("*********************************************************");
+	
+	
 }
+
+public static void keyPress() {
+System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para continuar...");
+leia.nextLine();
+
+		
+}		
 }
 
 
