@@ -5,6 +5,7 @@ import conta_bancaria.model.Conta;
 import java.util.ArrayList;
 import java.util.List;
 import conta_bancaria.repository.ContaRepository;
+
 public class ContaController implements ContaRepository{
 
 	private List<Conta> listaContas = new ArrayList<Conta>();
@@ -27,7 +28,7 @@ public class ContaController implements ContaRepository{
 
 	@Override
 	public void atualizar(Conta conta) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

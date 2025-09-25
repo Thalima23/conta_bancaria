@@ -4,7 +4,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import conta_bancaria.controller.ContaController;
-import conta_bancaria.model.Conta;
 import conta_bancaria.model.ContaCorrente;
 import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
@@ -17,62 +16,11 @@ public class Menu {
 	public static void main(String[] args) {
 		
 		
-		
 		int opcao; // armazena o nº correspondente a opçao do menu escolhida pelo usuário.
 		
+		criarContasTeste();
 		
-		// Instanciar Objetos da Classe Conta
-		
-		Conta c1 = new Conta(1, 123, 1, "Cintia Dourado", 500000.00f);
-		Conta c2 = new Conta(2, 123, 2, "Priscila Lins", 500000.00f);
-		System.out.println("O Saldo da conta é: " + c1.getSaldo());
-		
-		c1.setSaldo(6000000.00f);
-		
-		
-		System.out.println("O Saldo da conta é: " + c1.getSaldo());
-		
-		c1.visualizar();
-		c2.visualizar();
-		c1.sacar(1000);
-		
-		System.out.println(c1.sacar(1000));
-		System.out.println("O saldo da conta é: " + c1.getSaldo());
 	
-		System.out.println(c2.sacar(1000000));
-		System.out.println("O saldo da conta é: " + c2.getSaldo());
-		
-		c1.depositar(5000);
-		System.out.println("O saldo da conta é: " + c1.getSaldo());
-		
-		// Instanciar Objetos da Classe ContaCorrente
-		ContaCorrente cc1= new ContaCorrente(3, 456, 1, "Thuany Silva", 1000000.00f, 100000.00f);
-		
-		cc1.visualizar();
-		
-		// Instanciar Objetos da Classe Conta Poupanca
-		ContaPoupanca cp1= new ContaPoupanca(4, 567,2, "Thalita Lima", 100000.00f, 30);
-		
-		cp1.visualizar();
-		cp1.sacar(1000.00f);
-		cp1.visualizar();
-		cp1.depositar(500.00f);
-		cp1.visualizar();
-		
-		//Sacar conta corrente
-		System.out.println(cc1.sacar(2000000.00f));
-		cc1.visualizar();
-
-		cc1.visualizar();
-		System.out.println(cc1.sacar(2000.00f));
-		cc1.visualizar();
-		
-		//Depositar conta corrente
-		cc1.depositar(5000.00f);
-		cc1.visualizar();
-		
-		
-
 		while (true) { //true indica que o laço será infinito, ou seja, continuará até que ocorra uma interrupção manual 
 			
 			// Construindo a estrutura visual do menu:
@@ -105,7 +53,10 @@ public class Menu {
 			}catch(InputMismatchException e){
 			opcao = -1; 
 				System.out.println("\nDigite um número entre 0 e 8");
+				leia.nextLine();
 			}
+			
+				if (opcao == 0) {
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\nAnubis's Bank - Descomplicando seu presente e seu futuro!");
 				sobre();
                  leia.close();
@@ -119,6 +70,9 @@ public class Menu {
 			break;
 		case 2:
 			System.out.println(Cores.TEXT_WHITE + "Listar todas as Contas\n\n");
+			
+			listarContas();
+			
 			keyPress();
 			break;
 		case 3:
@@ -154,8 +108,9 @@ public class Menu {
 		}
 	}
 
-
-public static void sobre() {
+	}
+	
+		public static void sobre() {
 	System.out.println("\n*********************************************************");
 	System.out.println("Projeto Desenvolvido por: Thalita Lima");
 	System.out.println("Contato: thalitalima23@gmail.com");
@@ -165,12 +120,19 @@ public static void sobre() {
 	
 }
 
-public static void keyPress() {
+		public static void keyPress() {
 System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para continuar...");
 leia.nextLine();
 
 		
 }		
+
+		private static void criarContasTeste() { 
+	contaController.cadastrar(new ContaCorrente(1, 456, 1, "Thuany Silva", 1000000.00f, 100000.00f));
+	contaController.cadastrar(new ContaPoupanca(2, 456, 2, "Marcia Condarco", 1000000.00f, 10));
+	}
+
+		private static void listarContas() {
+	contaController.listarTodas();
 }
-
-
+}

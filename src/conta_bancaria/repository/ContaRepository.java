@@ -12,7 +12,7 @@ public interface ContaRepository {
 	public void procurarPorNumero(int numero);
 	public void deletar (int numero);
 	
-	//Métodos Bancários
+	// Métodos Bancários
 	
 	public void sacar(int numero, float valor);
 	public void depositar (int numero, float valor);
